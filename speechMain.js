@@ -25,8 +25,9 @@ if ("webkitSpeechRecognition" in window) {
   recognition.onresult = (event) => {
     let interimTranscript = "";
 
-    for (let i = event.resultIndex; i < event.results.length; ++i) {
-      if (event.results[i].isFinal) {
+    for (let i = event.resultIndex; i < event.results.length; i++) {
+      if (!(event.results[i][0].confidence > 0)) continue;
+      if (event.results[i].isFinal && event.results[i][0].confidence >= 0.7) {
         // Displays the recognized speech in the #final and #interim elements
         finalTranscript += event.results[i][0].transcript;
       } else {
