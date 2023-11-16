@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speech to Text App</title>
+    <!-- Links to the Bootstrap CSS library -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <!-- Links to custom CSS file -->
+    <link rel="stylesheet" href="customStyles.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="container mt-1 mb-4 text-light">
+      <h1>Speech to Text Translator</h1>
+      <p>A simple Speech to Text app using Web Speech API.</p>
+    </header>
+
+    <!-- The main section of the app containing language selection, transcript display, and control buttons -->
+    <section class="container">
+      <div class="mt-0" id="div_language">
+        <h2 class="mb-1 text-light">Select Language</h2>
+        <select
+          class="form-select bg-secondary text-light"
+          id="selectLanguage"
+          onchange="updateCountry()"
+        ></select>
+        <select
+          class="form-select bg-secondary text-light mt-2"
+          id="selectDialect"
+        ></select>
+      </div>
+      <h2 class="mt-1 text-light">Transcript</h2>
+      <div
+        class="p-3"
+        style="border: 1px solid gray; height: 300px; border-radius: 8px"
+      >
+        <span id="final" class="text-light"></span>
+        <span id="interim" class="text-secondary"></span>
+      </div>
+      <div class="mt-2" id="buttons">
+        <button class="btn btn-primary" id="start">Start</button>
+        <button class="btn btn-danger" id="stop">Stop</button>
+        <button class="btn btn-secondary" id="clear">Clear</button>
+        <p id="status" class="lead mt-3 text-light" style="display: none">
+          Listenting ...
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <hr />
+      <p class="container mt-4 pb-2 text-center text-light">
+        &copy; 2023 - Speech To Text Translator by
+        <a href="https://tushardev.onrender.com">Tushar Dahiya</a>
+      </p>
+    </footer>
+
+    <!-- Links to the JavaScript files -->
+    <script src="./speechMain.js"></script>
+    <script src="./languageInfo.js"></script>
+  </body>
+</html>
